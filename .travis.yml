@@ -1,0 +1,64 @@
+language: cpp
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+  - CXX_FLAGS="-Wall -pedantic -Werror -Wno-variadic-macros -Wno-long-long -Wno-shadow"
+  - RUN_TESTS=true
+  - COVERAGE=true
+  - LD_LIBRARY_PATH=/usr/local/lib
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - llvm-toolchain-trusty-6.0
+    packages:
+    - cmake
+    - gcc-7
+    - clang-6.0
+    - valgrind
+    - g++-7
+    - libstdc++-7-dev
+    - libssh2-1-dev
+    - libssh-dev
+
+matrix:
+  include:
+  - os: linux
+    compiler: clang
+    dist: trusty
+    env: T=debug
+  - os: linux
+    compiler: gcc
+    dist: trusty
+    env: T=debug
+
+branches:
+  only:
+  - master
+
+notifications:
+  email: false
+
+before_install:
+- docker run -p 81:80 kennethreitz/httpbin &
+- export CMAKE_OPTIONS=${CMAKE_OPTIONS}" "${ENV_CMAKE_OPTIONS}
+- export CXX_FLAGS=${CXX_FLAGS}" "${ENV_CXX_FLAGS}
+- echo $LANG
+- echo $LC_ALL
+- mkdir -p build
+- cd build
+- mkdir -p docs
+- cmake --version
+- cmake ${CMAKE_OPTIONS} -DCMAKE_CXX_FLAGS=${CXX_FLAGS} -DCMAKE_BUILD_TYPE=Debug -DENABLE_COVERAGE=ON -DCOVERAGE=1 -DENABLE_MANUAL=OFF -DBUILD_TESTING=OFF ..
+
+script:
+- make
+- make test
+- cd test
+- ./runAllTests
