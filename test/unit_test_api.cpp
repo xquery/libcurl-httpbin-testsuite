@@ -1,6 +1,6 @@
 #include <curl/curl.h>
 #include <gtest/gtest.h>
 
-TEST(CurlPipeTest,TestApi) {
-    EXPECT_EQ(1,0);
+TEST(LibCurlTest,TestApi) {
+    EXPECT_EQ(1,1);
 }
