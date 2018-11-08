@@ -1,5 +1,5 @@
 # libcurl-httpbin-testsuite
-[![Build Status](https://travis-ci.org/xquery/libcurl-httpbin-testsuite.svg?branch=develop)](https://travis-ci.org/xquery/libcurl-httpbin-testsuite)
+[![Build Status](https://travis-ci.org/xquery/libcurl-httpbin-testsuite.svg?branch=master)](https://travis-ci.org/xquery/libcurl-httpbin-testsuite)
 
 Test libcurl with httpbin
 
