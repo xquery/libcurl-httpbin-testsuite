@@ -80,7 +80,7 @@ namespace {
         PerformHTTP();
     }
 
-//    TEST_F(HTTPTest, TestHTTPBasicAuth) {
+//    TEST_F(HTTPTest, TestBasicAuth) {
 //        curl_url_set(urlp, CURLUPART_PATH, "/basic-auth/user/password", 0);
 //        curl_easy_setopt(h, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 //        curl_easy_setopt(h, CURLOPT_USERNAME, "user");
