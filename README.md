@@ -39,12 +39,12 @@ or you could run directly
 > ./runAllTests
 ```
 
-#FAQ
+# FAQ
 
 ### Why test libcurl ? 
 more tests better ;)
 
-##Why use httpbin ? 
+## Why use httpbin ? 
 covers all http methods/behavior
 
 ### Why use googletest ? 
