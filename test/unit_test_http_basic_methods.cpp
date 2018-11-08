@@ -80,6 +80,38 @@ namespace {
         PerformHTTP();
     }
 
+    TEST_F(HTTPTest, TestStatusCode200) {
+        curl_url_set(urlp, CURLUPART_PATH, "/status/200", 0);
+        PerformHTTP();
+    }
+
+    TEST_F(HTTPTest, TestStatusCode202) {
+        curl_url_set(urlp, CURLUPART_PATH, "/status/202", 0);
+        PerformHTTP();
+    }
+
+    TEST_F(HTTPTest, TestStatusCode400) {
+        curl_easy_setopt(h, CURLOPT_FAILONERROR, 0L);
+
+        curl_url_set(urlp, CURLUPART_PATH, "/status/400", 0);
+        PerformHTTP();
+    }
+
+    TEST_F(HTTPTest, TestStatusCode500) {
+        curl_easy_setopt(h, CURLOPT_FAILONERROR, 0L);
+        curl_url_set(urlp, CURLUPART_PATH, "/status/500", 0);
+        PerformHTTP();
+    }
+
+//    TEST_F(HTTPTest, TestAbsoluteRedirect) {
+//        curl_url_set(urlp, CURLUPART_PATH, "/absolute-redirect/2", 0);
+//        curl_easy_setopt(h, CURLOPT_FOLLOWLOCATION, 1L);
+//        curl_easy_setopt(h, CURLOPT_REDIR_PROTOCOLS,
+//                         CURLPROTO_HTTP | CURLPROTO_HTTPS);
+//
+//        PerformHTTP();
+//    }
+
 //    TEST_F(HTTPTest, TestBasicAuth) {
 //        curl_url_set(urlp, CURLUPART_PATH, "/basic-auth/user/password", 0);
 //        curl_easy_setopt(h, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
