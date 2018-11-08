@@ -8,6 +8,9 @@ namespace {
     protected:
         void SetUp() override {
             curl_url_set(urlp, CURLUPART_SCHEME, "https", 0);
+            curl_url_set(urlp, CURLUPART_PORT, "443", 0);
+            curl_easy_setopt(h, CURLOPT_SSL_VERIFYPEER, 0L);
+            curl_easy_setopt(h, CURLOPT_SSL_VERIFYHOST, 0L);
         }
     };
 

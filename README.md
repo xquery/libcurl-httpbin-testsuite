@@ -25,7 +25,12 @@ or however way you feel comfortable installing.
 > docker run -p 81:80 kennethreitz/httpbin
 ```
 
-Edit test/unit-test.h if you expose httpbin on a different host:port.
+or run the docker-compose script
+
+```$bash
+> docker-compose up -d
+```
+which will setup both https (443) and http (81). Edit test/unit-test.h if you expose httpbin on a different host:port.
 
 After building usually it is just a matter of running make test target.
 

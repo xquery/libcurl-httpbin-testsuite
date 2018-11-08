@@ -1,5 +1,5 @@
 #include "unit_test_http_basic_methods.cpp"
-//#include "unit_test_https_basic_methods.cpp"
+#include "unit_test_https_basic_methods.cpp"
 
 #include <gtest/gtest.h>
 
