@@ -10,8 +10,8 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -pedantic -O3 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lstdc++ -lpthread -ldl")
 
 download_project(PROJ                curl
-        GIT_REPOSITORY      https://github.com/xquery/curl.git
-        GIT_TAG             curlopt_curlu8
+        GIT_REPOSITORY      https://github.com/curl/curl.git
+        GIT_TAG             master
         ${UPDATE_DISCONNECTED_IF_AVAILABLE}
         )
 download_project(PROJ                googletest
