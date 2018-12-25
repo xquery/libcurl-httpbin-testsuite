@@ -103,6 +103,12 @@ namespace {
         PerformHTTP();
     }
 
+    TEST_F(HTTPTest, HTTPTestUserAgent) {
+        curl_url_set(urlp, CURLUPART_PATH, "/user-agent", 0);
+        PerformHTTP();
+        EXPECT_EQ(readBuffer,"{\n  \"user-agent\": \"libcurl_httpbin-testsuite\"\n}\n");
+    }
+
 //    TEST_F(HTTPTest, TestAbsoluteRedirect) {
 //        curl_url_set(urlp, CURLUPART_PATH, "/absolute-redirect/2", 0);
 //        curl_easy_setopt(h, CURLOPT_FOLLOWLOCATION, 1L);
