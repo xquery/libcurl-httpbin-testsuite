@@ -1,3 +1,4 @@
+#include "unit_test_api.cpp";
 #include "unit_test_http_basic_methods.cpp"
 #include "unit_test_https_basic_methods.cpp"
 
